@@ -7,3 +7,4 @@ resources:
   - cluster-base-flux.kustomization.yaml
   - kube-system.kustomization.yaml
   - kustomizations.kustomization.yaml
+  - metallb-system.kustomization.yaml

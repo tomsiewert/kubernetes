@@ -1,0 +1,10 @@
+---
+apiVersion: metallb.io/v1beta2
+kind: BGPPeer
+metadata:
+  name: router
+  namespace: metallb-system
+spec:
+  myASN: 4220000004
+  peerASN: 4220000004
+  peerAddress: 10.134.0.1

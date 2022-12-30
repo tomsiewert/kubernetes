@@ -3,8 +3,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: flux-system
 resources:
-  - ingress-nginx.helmrepository.yaml
-  - jetstack.helmrepository.yaml
-  - prometheus-community.helmrepository.yaml
   - cert-manager-webhook-hetzner.helmrepository.yaml
   - cilium.helmrepository.yaml
+  - ingress-nginx.helmrepository.yaml
+  - jetstack.helmrepository.yaml
+  - metallb.helmrepository.yaml
+  - prometheus-community.helmrepository.yaml
