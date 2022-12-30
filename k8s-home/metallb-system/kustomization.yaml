@@ -8,4 +8,5 @@ resources:
   - internal-pool.ipaddresspool.yaml
   - metallb.helmrelease.yaml
   - metallb-system.namespace.yaml
-  - router.bgppeer.yaml
+  - router-v4.bgppeer.yaml
+  - router-v6.bgppeer.yaml

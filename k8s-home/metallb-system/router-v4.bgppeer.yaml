@@ -2,7 +2,7 @@
 apiVersion: metallb.io/v1beta2
 kind: BGPPeer
 metadata:
-  name: router
+  name: router-v4
   namespace: metallb-system
 spec:
   myASN: 4220000004
