@@ -42,5 +42,9 @@ spec:
     k8sServiceHost: 10.134.0.100
     k8sServicePort: 6443
     kubeProxyReplacement: strict
+    l7Proxy: false
+    encryption:
+      enabled: true
+      type: wireguard
     prometheus:
       enabled: true
