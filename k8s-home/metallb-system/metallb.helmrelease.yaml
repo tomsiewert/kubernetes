@@ -6,12 +6,6 @@ metadata:
 spec:
   interval: 5m
   timeout: 20m
-  install:
-    remediation:
-      retries: -1
-  upgrade:
-    remediation:
-      retries: -1
   chart:
     spec:
       chart: metallb
@@ -20,19 +14,7 @@ spec:
         kind: HelmRepository
         name: metallb
         namespace: flux-system
-      interval: 1m
   values:
     speaker:
       frr:
         enabled: true
-    prometheus:
-      podMonitor:
-        enabled: true
-      prometheusRule:
-        enabled: true
-        addressPoolExhausted:
-          labels:
-            severity: info
-        bgpSessionDown:
-          labels:
-            severity: critical
