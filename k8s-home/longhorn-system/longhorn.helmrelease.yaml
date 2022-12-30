@@ -14,3 +14,8 @@ spec:
         kind: HelmRepository
         name: longhorn
         namespace: flux-system
+  values:
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      host: longhorn.home.frickel.earth
