@@ -31,7 +31,10 @@ spec:
       ui:
         enabled: true
         ingress:
-          enabled: false
+          enabled: true
+          className: nginx
+          hosts:
+            - hubble.home.frickel.earth
         replicas: 1
     ipam:
       mode: kubernetes
