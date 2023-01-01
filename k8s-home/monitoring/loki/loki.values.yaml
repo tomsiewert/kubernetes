@@ -2,12 +2,18 @@
 serviceMonitor:
   enabled: true
 
-write:
-  replicas: 2
-read:
-  replicas: 2
+loki:
+  commonConfig:
+    replication_factor: 1
+  storage:
+    type: 'filesystem'
 
-persistence:
-  enabled: true
-  size: 15Gi
-  storageClassName: longhorn
+monitoring:
+  selfMonitoring:
+    grafanaAgent:
+      installOperator: false
+  lokiCanary:
+    enabled: false
+
+test:
+  enabled: false
