@@ -7,5 +7,4 @@ resources:
   - unifi.namespace.yaml
   - unifi.statefulset.yaml
   - unifi.svc.yaml
-  - unifi.vpa.yaml
   - unifi.ingress.yaml
