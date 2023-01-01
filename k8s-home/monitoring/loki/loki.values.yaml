@@ -7,13 +7,6 @@ write:
 read:
   replicas: 2
 
-loki:
-  compactor:
-    retention_enabled: true
-  limits_config:
-    retention_period: 7d
-  ruler:
-    alertmanager_url: http://prometheus-kube-prometheus-alertmanager:9093
 persistence:
   enabled: true
   size: 15Gi
