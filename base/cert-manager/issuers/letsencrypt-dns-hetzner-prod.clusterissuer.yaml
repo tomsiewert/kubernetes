@@ -15,5 +15,6 @@ spec:
             groupName: dns.hetzner.cloud
             solverName: hetzner
             config:
+              zoneName: frickel.earth
               secretName: hetzner-dns-private
               apiUrl: https://dns.hetzner.com/api/v1
