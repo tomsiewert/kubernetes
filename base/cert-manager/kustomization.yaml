@@ -6,6 +6,7 @@ namespace: cert-manager
 resources:
   - cert-manager.namespace.yaml
   - cert-manager.helmrelease.yaml
+  - cert-manager-webhook-hetzner.helmrelease.yaml
   - hetzner-dns-private.secret.yaml
   - letsencrypt-dns-hetzner-prod.clusterissuer.yaml
   - letsencrypt-prod.clusterissuer.yaml
