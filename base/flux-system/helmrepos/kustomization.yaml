@@ -5,6 +5,7 @@ namespace: flux-system
 resources:
   - cert-manager-webhook-hetzner.helmrepository.yaml
   - cilium.helmrepository.yaml
+  - emberstack.helmrepository.yaml
   - ingress-nginx.helmrepository.yaml
   - jetstack.helmrepository.yaml
   - longhorn.helmrepository.yaml
