@@ -29,7 +29,7 @@ spec:
               protocol: TCP
           volumeMounts:
             - name: config
-              mountPath: /config/unifi-poller.conf
+              mountPath: /etc/unpoller/up.conf
               subPath: unifi-poller.conf
               readOnly: true
       volumes:
