@@ -5,6 +5,7 @@ namespace: flux-system
 
 resources:
   - cluster-base-flux.kustomization.yaml
+  - cert-manager.kustomization.yaml
   - ingress-nginx.kustomization.yaml
   - kube-system.kustomization.yaml
   - kustomizations.kustomization.yaml

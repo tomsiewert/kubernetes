@@ -1,0 +1,19 @@
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-dns-hetzner-prod
+spec:
+  acme:
+    email: acme@siewert.io
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: acme-account-key
+    solvers:
+      - dns01:
+          webhook:
+            groupName: dns.hetzner.cloud
+            solverName: hetzner
+            config:
+              secretName: hetzner-dns-private
+              apiUrl: https://dns.hetzner.com/api/v1
