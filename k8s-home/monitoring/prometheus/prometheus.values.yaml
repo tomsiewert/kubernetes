@@ -11,8 +11,6 @@ alertmanager:
   enabled: true
   alertmanagerSpec:
     externalUrl: "https://alertmanager.home.frickel.earth"
-    forceEnableClusterMode: true
-    replicas: 1
   config:
     inhibit_rules:
     - equal:
