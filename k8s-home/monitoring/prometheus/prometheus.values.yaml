@@ -148,7 +148,15 @@ prometheus:
           resources:
             requests:
               storage: 20Gi
-    podMonitorNamespaceSelector: {}
-    podMonitorSelector:
-      matchLabels:
-        app.kubernetes.io/component: monitoring
+    podMonitorNamespaceSelector:
+      any: true
+    podMonitorSelector: {}
+    podMonitorSelectorNilUsesHelmValues: false
+    ruleNamespaceSelector:
+      any: true
+    ruleSelector: {}
+    ruleSelectorNilUsesHelmValues: false
+    serviceMonitorNamespaceSelector:
+      any: true
+    serviceMonitorSelector: {}
+    serviceMonitorSelectorNilUsesHelmValues: false
