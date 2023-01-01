@@ -7,7 +7,7 @@ write:
 read:
   replicas: 2
 
-config:
+loki:
   compactor:
     retention_enabled: true
   limits_config:
