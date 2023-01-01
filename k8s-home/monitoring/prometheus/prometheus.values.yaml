@@ -1,10 +1,21 @@
 ---
 defaultRules:
   rules:
+    etcd: false
     kubeProxy: false
-    kubeEtcd: false
+    kubeApiserverAvailability: false
+    kubeApiserverBurnrate: false
+    kubeApiserverHistogram: false
+    kubeApiserverSlos: false
+    kubeControllerManager: false
 
 kubeProxy:
+  enabled: false
+kubeEtcd:
+  enabled: false
+kubeApiServer:
+  enabled: false
+kubeControllerManager:
   enabled: false
 
 alertmanager:
