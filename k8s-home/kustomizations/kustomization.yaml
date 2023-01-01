@@ -11,5 +11,6 @@ resources:
   - kustomizations.kustomization.yaml
   - longhorn-system.kustomization.yaml
   - metallb-system.kustomization.yaml
+  - monitoring.kustomization.yaml
   - reflector.kustomization.yaml
   - unifi.kustomization.yaml
