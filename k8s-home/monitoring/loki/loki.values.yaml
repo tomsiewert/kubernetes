@@ -18,13 +18,3 @@ persistence:
   enabled: true
   size: 15Gi
   storageClassName: longhorn
-ingress:
-  enabled: true
-  ingressClassName: nginx
-  hosts:
-    - host: loki.home.frickel.earth
-      paths: [/]
-  tls:
-    - secretName: wildcard.home.frickel.earth-prod
-      hosts:
-        - loki.home.frickel.earth
