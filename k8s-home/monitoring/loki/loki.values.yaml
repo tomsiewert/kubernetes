@@ -1,7 +1,12 @@
 ---
-replicas: 2
 serviceMonitor:
   enabled: true
+
+write:
+  replicas: 2
+read:
+  replicas: 2
+
 config:
   compactor:
     retention_enabled: true
