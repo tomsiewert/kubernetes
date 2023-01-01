@@ -103,12 +103,12 @@ grafana:
         - name: k8s-home-loki
           type: loki
           editable: false
-          url: http://loki-read-headless:3100
+          url: http://loki:3100
           jsonData:
             httpHeaderName1: 'X-Scope-OrgID'
             timeout: '120'
           secureJsonData:
-            httpHeaderValue1: k8s-home
+            httpHeaderValue1: '1'
   serviceMonitor:
     enabled: true
   sidecar:
