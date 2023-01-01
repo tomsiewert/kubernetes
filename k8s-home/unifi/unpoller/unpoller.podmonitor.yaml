@@ -11,6 +11,6 @@ spec:
     matchLabels:
       app.kubernetes.io/name: unpoller
   podMetricsEndpoints:
-    - port: 9130
+    - port: '9130'
       interval: 30s
       path: /metrics
