@@ -16,3 +16,5 @@ spec:
       interval: 1m
   values:
     groupName: dns.hetzner.cloud
+    secretName:
+      - hetzner-dns-private
