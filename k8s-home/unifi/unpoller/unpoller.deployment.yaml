@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unpoller
+  namespace: monitoring
+  labels:
+    app.kubernetes.io/name: unpoller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: unpoller
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: unpoller
+      annotations:
+        prometheus.io/path: /metrics
+        prometheus.io/port: "9130"
+        prometheus.io/scrape: "true"
+    spec:
+      containers:
+        - name: unifi-poller
+          image: ghcr.io/unpoller/unpoller:latest
+          ports:
+            - containerPort: 9130
+              name: prometheus
+              protocol: TCP
+          volumeMounts:
+            - name: config
+              mountPath: /config/unifi-poller.conf
+              subPath: unifi-poller.conf
+              readOnly: true
+      volumes:
+        - name: config
+          secret:
+            secretName: unpoller-config

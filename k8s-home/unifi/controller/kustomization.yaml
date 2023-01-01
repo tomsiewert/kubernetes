@@ -4,6 +4,6 @@ kind: Kustomization
 namespace: unifi
 
 resources:
-  - unifi.namespace.yaml
-  - controller/
-  - unpoller/
+  - unifi.statefulset.yaml
+  - unifi.svc.yaml
+  - unifi.ingress.yaml
