@@ -1,0 +1,61 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: unifi
+  namespace: unifi
+  labels:
+    app.kubernetes.io/name: unifi
+    app.kubernetes.io/instance: home
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: unifi
+      app.kubernetes.io/instance: home
+  serviceName: unifi
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: unifi
+        app.kubernetes.io/instance: home
+    spec:
+      containers:
+        - image: lscr.io/linuxserver/unifi-controller:7.3.76
+          name: controller
+          ports:
+            - containerPort: 8080
+            - containerPort: 8443
+            - containerPort: 3478
+            - containerPort: 10001
+            - containerPort: 1800
+            - containerPort: 8843
+            - containerPort: 8880
+            - containerPort: 6789
+            - containerPort: 5514
+          volumeMounts:
+            - name: config
+              mountPath: /config
+          env:
+            - name: PUID
+              value: '1000'
+            - name: PGID
+              value: '1000'
+            - name: TZ
+              value: 'Europe/Berlin'
+          resources:
+            requests:
+              cpu: '500m'
+              memory: '2048Mi'
+            limits:
+              memory: '3072Mi'
+              cpu: '1500m'
+  volumeClaimTemplates:
+    - metadata:
+        name: config
+      spec:
+        accessModes: [ReadWriteOnce]
+        storageClassName: longhorn
+        resources:
+          requests:
+            storage: 5Gi
