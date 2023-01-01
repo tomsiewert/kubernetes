@@ -20,15 +20,12 @@ alertmanager:
       target_matchers:
       - severity = info
     receivers:
-    - name: deadmanssnitch
-      webhook_configs:
-      - url: "" # Set in secrets
     - name: "null"
     route:
       routes:
       - matchers:
         - alertname = Watchdog
-        receiver: deadmanssnitch
+        receiver: "null"
         group_wait: 0s
         repeat_interval: 10m
       - matchers:
