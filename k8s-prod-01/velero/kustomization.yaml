@@ -1,0 +1,15 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: velero
+
+resources:
+  - velero.namespace.yaml
+  - velero.crd.yaml
+  - cloud-credentials.secret.yaml
+  - velero.yaml
+  - backup-asciinema.schedule.yaml
+  - backup-kube-system.schedule.yaml
+  - backup-matrix.schedule.yaml
+  - backup-netbox.schedule.yaml
+  - backup-paperless.schedule.yaml

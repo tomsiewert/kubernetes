@@ -1,0 +1,21 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wildcard.frickel.earth
+  namespace: cert-manager
+spec:
+  secretName: wildcard.frickel.earth-prod
+  issuerRef:
+    name: letsencrypt-dns-prod
+    kind: ClusterIssuer
+  commonName: 'frickel.earth'
+  dnsNames:
+   - frickel.earth
+   - '*.frickel.earth'
+  secretTemplate:
+    annotations:
+      reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+      reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: asciinema,gitlab,matrix,monitoring,netbox-prod,netbox-tim,paperless-prod,vault-prod
+      reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
+      reflector.v1.k8s.emberstack.com/reflection-auto-namespaces: asciinema,gitlab,matrix,monitoring,netbox-prod,netbox-tim,paperless-prod,vault-prod

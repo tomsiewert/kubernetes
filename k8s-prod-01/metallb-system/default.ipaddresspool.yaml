@@ -1,0 +1,10 @@
+---
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: internal-pool
+  namespace: metallb-system
+spec:
+  addresses:
+    - 45.86.126.32/28
+    - 2a0c:9a40:8046::/48
