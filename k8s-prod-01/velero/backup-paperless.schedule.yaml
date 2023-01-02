@@ -1,0 +1,19 @@
+---
+apiVersion: velero.io/v1
+kind: Schedule
+metadata:
+  creationTimestamp: null
+  name: backup-paperless
+  namespace: velero
+spec:
+  schedule: '@every 1h'
+  template:
+    excludedResources:
+    - replicasets.apps
+    hooks: {}
+    includedNamespaces:
+    - paperless-prod
+    metadata: {}
+    ttl: 96h0m0s
+  useOwnerReferencesInBackup: false
+status: {}
