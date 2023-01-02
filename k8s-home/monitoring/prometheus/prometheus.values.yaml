@@ -125,6 +125,32 @@ grafana:
         disableDelete: true
         foldersFromFilesStructure: true
       searchNamespace: ALL
+  dashboards:
+    default:
+      unpoller-dpi:
+        gnetId: 11310
+        revision: 5
+        datasource: Prometheus
+      unpoller-sites:
+        gnetId: 11311
+        revision: 5
+        datasource: Prometheus
+      unpoller-uswinsights:
+        gnetId: 11312
+        revision: 9
+        datasource: Prometheus
+      unpoller-usginsights:
+        gnetId: 11313
+        revision: 9
+        datasource: Prometheus
+      unpoller-uapinsights:
+        gnetId: 11314
+        revision: 10
+        datasource: Prometheus
+      unpoller-clientinsights:
+        gnetId: 11315
+        revision: 9
+        datasource: Prometheus
 
 prometheus:
   enabled: true
