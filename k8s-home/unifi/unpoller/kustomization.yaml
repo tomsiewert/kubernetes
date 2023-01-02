@@ -5,4 +5,5 @@ kind: Kustomization
 resources:
   - unpoller-config.secret.yaml
   - unpoller.deployment.yaml
-  - unpoller.podmonitor.yaml
+  - unpoller.svc.yaml
+  - unpoller.servicemonitor.yaml
