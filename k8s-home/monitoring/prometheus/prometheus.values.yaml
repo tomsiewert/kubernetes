@@ -8,6 +8,8 @@ defaultRules:
     kubeApiserverHistogram: false
     kubeApiserverSlos: false
     kubeControllerManager: false
+    kubeSchedulerAlerting: true
+    kubeSchedulerRecording: true
 
 kubeProxy:
   enabled: false
@@ -16,6 +18,8 @@ kubeEtcd:
 kubeApiServer:
   enabled: false
 kubeControllerManager:
+  enabled: false
+kubeScheduler:
   enabled: false
 
 alertmanager:
