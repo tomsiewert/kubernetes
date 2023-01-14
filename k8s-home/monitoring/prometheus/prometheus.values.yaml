@@ -26,26 +26,54 @@ alertmanager:
   enabled: true
   alertmanagerSpec:
     externalUrl: "https://alertmanager.home.frickel.earth"
+    volumeMounts:
+      - name: victorops_api_key
+        mountPath: /run/secrets/victorops_api_key
+        subPath: api_key
+        readOnly: true
+    volumes:
+      - name: victorops_api_key
+        secret:
+          secretName: victorops-key
+          items:
+            - key: api_key
+              path: api_key
   config:
+    global:
+      victorops_api_key_file: "/run/secrets/victorops_api_key"
     inhibit_rules:
-    - equal:
-      - namespace
-      source_matchers:
-      - alertname = InfoInhibitor
-      target_matchers:
-      - severity = info
+      - equal:
+          - namespace
+        source_matchers:
+          - alertname = InfoInhibitor
+        target_matchers:
+          - severity = info
     receivers:
-    - name: "null"
+      - name: "null"
+      - name: vops-warning
+        victorops_configs:
+          - routing_key: Private
+            message_type: warning
+      - name: vops-critical
+        victorops_configs:
+          - routing_key: Private
+            message_type: critical
     route:
       routes:
-      - matchers:
-        - alertname = Watchdog
-        receiver: "null"
-        group_wait: 0s
-        repeat_interval: 10m
-      - matchers:
-        - alertname = InfoInhibitor
-        receiver: null
+        - matchers:
+            - alertname = Watchdog
+          receiver: "null"
+          group_wait: 0s
+          repeat_interval: 10m
+        - matchers:
+            - alertname = InfoInhibitor
+          receiver: null
+        - matchers:
+            - severity = warning
+          receiver: vops-warning
+        - matchers:
+            - severity = critical
+          receiver: vops-critical
   podDisruptionBudget:
     enabled: true
   ingress:

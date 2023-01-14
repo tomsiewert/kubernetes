@@ -14,3 +14,4 @@ configMapGenerator:
 resources:
   - prometheus.helmrelease.yaml
   - grafana-azuread.secret.yaml
+  - victorops-key.secret.yaml
