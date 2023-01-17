@@ -27,12 +27,12 @@ alertmanager:
   alertmanagerSpec:
     externalUrl: "https://alertmanager.home.frickel.earth"
     volumeMounts:
-      - name: victorops_api_key
+      - name: victorops-api-key
         mountPath: /run/secrets/victorops_api_key
         subPath: api_key
         readOnly: true
     volumes:
-      - name: victorops_api_key
+      - name: victorops-api-key
         secret:
           secretName: victorops-key
           items:
