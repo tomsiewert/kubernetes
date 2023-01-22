@@ -12,3 +12,4 @@ resources:
   - longhorn.helmrepository.yaml
   - metallb.helmrepository.yaml
   - prometheus-community.helmrepository.yaml
+  - zalando-postgres-operator.helmrepository.yaml
