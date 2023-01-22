@@ -6,6 +6,7 @@ resources:
   - cert-manager-webhook-hetzner.helmrepository.yaml
   - cilium.helmrepository.yaml
   - emberstack.helmrepository.yaml
+  - redis-operator.helmrepository.yaml
   - grafana.helmrepository.yaml
   - ingress-nginx.helmrepository.yaml
   - jetstack.helmrepository.yaml
