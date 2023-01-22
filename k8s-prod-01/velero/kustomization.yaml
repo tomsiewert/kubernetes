@@ -8,8 +8,3 @@ resources:
   - velero.crd.yaml
   - cloud-credentials.secret.yaml
   - velero.yaml
-  - backup-asciinema.schedule.yaml
-  - backup-kube-system.schedule.yaml
-  - backup-matrix.schedule.yaml
-  - backup-netbox.schedule.yaml
-  - backup-paperless.schedule.yaml

@@ -16,4 +16,5 @@ resources:
   - paperless.kustomization.yaml
   - redis-system.kustomization.yaml
   - tmate.kustomization.yaml
+  - velero.kustomization.yaml
   - zalando-postgres-system.kustomization.yaml
