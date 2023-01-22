@@ -8,4 +8,4 @@ spec:
   ipAddressPools:
     - default
   communities:
-    - 213392:510:3
+    - 65501:510
