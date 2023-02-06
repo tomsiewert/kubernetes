@@ -111,7 +111,7 @@ spec:
         - mountPath: /credentials
           name: cloud-credentials
       initContainers:
-      - image: velero/velero-plugin-for-aws:v1.5.1
+      - image: velero/velero-plugin-for-aws:v1.6.1
         imagePullPolicy: IfNotPresent
         name: velero-velero-plugin-for-aws
         resources: {}
