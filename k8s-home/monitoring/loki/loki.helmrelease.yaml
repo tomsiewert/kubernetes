@@ -8,7 +8,7 @@ spec:
   timeout: 20m
   chart:
     spec:
-      version: "3.8.2"
+      version: "4.6.1"
       chart: loki
       sourceRef:
         kind: HelmRepository
