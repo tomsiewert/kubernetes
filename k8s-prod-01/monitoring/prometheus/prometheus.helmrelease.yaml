@@ -8,7 +8,7 @@ spec:
   timeout: 20m
   chart:
     spec:
-      version: "44.3.0"
+      version: "45.1.0"
       chart: kube-prometheus-stack
       sourceRef:
         kind: HelmRepository
