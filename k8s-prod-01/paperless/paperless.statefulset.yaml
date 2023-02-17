@@ -17,7 +17,7 @@ spec:
         app: paperless
     spec:
       containers:
-        - image: ghcr.io/paperless-ngx/paperless-ngx:1.11.3
+        - image: ghcr.io/paperless-ngx/paperless-ngx:1.13.0
           name: paperless
           imagePullPolicy: "IfNotPresent"
           resources:
