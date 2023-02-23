@@ -6,6 +6,6 @@ namespace: metallb-system
 resources:
   - metallb.helmrelease.yaml
   - metallb-system.namespace.yaml
-  - egh-rr1.bgppeer.yaml
+  - host.bgppeer.yaml
   - default.ipaddresspool.yaml
   - default.bgpadvertisement.yaml
