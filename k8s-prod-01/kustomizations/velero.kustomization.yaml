@@ -2,11 +2,30 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: velero
+  name: velero-base
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./k8s-prod-01/velero
+  path: ./k8s-prod-01/velero/base
+  prune: true
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
+  sourceRef:
+    kind: GitRepository
+    name: clusters
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: velero-schedules
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: velero-base
+  interval: 10m0s
+  path: ./k8s-prod-01/velero/schedules
   prune: true
   decryption:
     provider: sops

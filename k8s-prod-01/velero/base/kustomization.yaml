@@ -5,6 +5,5 @@ namespace: velero
 
 resources:
   - velero.namespace.yaml
-  - velero.crd.yaml
   - cloud-credentials.secret.yaml
-  - velero.yaml
+  - velero.helmrelease.yaml
