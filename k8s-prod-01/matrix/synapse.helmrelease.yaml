@@ -33,6 +33,8 @@ spec:
     config:
       enableRegistration: false
     synapse:
+      strategy:
+        type: Recreate
       extraVolumes:
         - name: smtp-config
           secret:
