@@ -6,4 +6,3 @@ namespace: cert-manager
 resources:
   - wildcard-k8s-prod-01-frickel-earth.certificate.yaml
   - wildcard-frickel-earth.certificate.yaml
-  - matrix-frickel-earth.certificate.yaml
