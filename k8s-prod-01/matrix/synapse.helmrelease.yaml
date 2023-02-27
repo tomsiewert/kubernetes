@@ -4,6 +4,12 @@ kind: HelmRelease
 metadata:
   name: synapse
 spec:
+  install:
+    remediation:
+      retries: -1
+  upgrade:
+    remediation:
+      retries: -1
   interval: 5m
   timeout: 20m
   chart:
@@ -26,6 +32,16 @@ spec:
         enabled: true
     config:
       enableRegistration: false
+    synapse:
+      extraVolumes:
+        - name: smtp-config
+          secret:
+            secretName: synapse-smtp-config
+      extraVolumeMounts:
+        - name: smtp-config
+          mountPath: /synapse/config/conf.d/smtp.yaml
+          subPath: smtp_config
+          readOnly: true
     workers:
       default:
         annotations:

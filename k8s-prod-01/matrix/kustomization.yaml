@@ -7,3 +7,4 @@ resources:
   - matrix.namespace.yaml
   - synapse.helmrelease.yaml
   - matrix-postgres.postgresql.yaml
+  - synapse-smtp-config.secret.yaml
