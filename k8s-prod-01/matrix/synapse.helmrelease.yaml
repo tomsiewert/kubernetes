@@ -29,7 +29,7 @@ spec:
       size: 20Gi
     signingkey:
       job:
-        enabled: true
+        enabled: false
     config:
       enableRegistration: false
     synapse:
