@@ -7,5 +7,6 @@ resources:
   - cert-manager.namespace.yaml
   - cert-manager.helmrelease.yaml
   - cert-manager-webhook-hetzner.helmrelease.yaml
+  - cloudflare-token.secret.yaml
   - acme-account-key.secret.yaml
   - hetzner-dns-private.secret.yaml

@@ -4,5 +4,6 @@ kind: Kustomization
 namespace: cert-manager
 
 resources:
+  - letsencrypt-dns-cloudflare-prod.clusterissuer.yaml
   - letsencrypt-dns-hetzner-prod.clusterissuer.yaml
   - letsencrypt-prod.clusterissuer.yaml
