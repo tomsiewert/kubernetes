@@ -23,7 +23,7 @@ spec:
       size: 20Gi
     signingkey:
       job:
-        enabled: false
+        enabled: true
     config:
       enableRegistration: false
     workers:
@@ -45,11 +45,10 @@ spec:
       use_presence: true
     ingress:
       className: nginx
-      annotations:
-        tls:
-          - secretName: wildcard.frickel.earth-prod
-            hosts:
-              - matrix.frickel.earth
+      tls:
+        - secretName: wildcard.frickel.earth-prod
+          hosts:
+            - matrix.frickel.earth
     postgresql:
       enabled: false
     externalPostgresql:
