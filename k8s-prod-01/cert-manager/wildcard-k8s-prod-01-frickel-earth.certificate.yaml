@@ -7,7 +7,7 @@ metadata:
 spec:
   secretName: wildcard.k8s-prod-01.frickel.earth-prod
   issuerRef:
-    name: letsencrypt-dns-prod
+    name: letsencrypt-dns-hetzner-prod
     kind: ClusterIssuer
   commonName: 'k8s-prod-01.frickel.earth'
   dnsNames:
