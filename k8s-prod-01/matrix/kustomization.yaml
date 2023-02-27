@@ -6,3 +6,4 @@ namespace: matrix
 resources:
   - matrix.namespace.yaml
   - synapse.helmrelease.yaml
+  - matrix-postgres.postgresql.yaml
