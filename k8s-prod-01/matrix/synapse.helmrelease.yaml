@@ -30,7 +30,7 @@ spec:
       default:
         annotations:
           prometheus.io/scrape: true
-          prometheus.io/port: 9090
+          prometheus.io/port: '9090'
           prometheus.io/path: /_synapse/metrics
       pusher:
         enabled: true
