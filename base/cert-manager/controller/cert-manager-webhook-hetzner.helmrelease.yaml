@@ -16,5 +16,7 @@ spec:
       interval: 1m
   values:
     groupName: dns.hetzner.cloud
+    certManager:
+      serviceAccountName: cert-manager
     secretName:
       - hetzner-dns-private
