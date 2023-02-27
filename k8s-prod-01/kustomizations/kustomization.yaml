@@ -10,6 +10,7 @@ resources:
   - kube-system.kustomization.yaml
   - kustomizations.kustomization.yaml
   - longhorn-system.kustomization.yaml
+  - matrix.kustomization.yaml
   - metallb-system.kustomization.yaml
   - monitoring.kustomization.yaml
   - reflector.kustomization.yaml

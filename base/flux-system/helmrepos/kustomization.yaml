@@ -3,6 +3,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: flux-system
 resources:
+  - ananace.helmrepository.yaml
   - cert-manager-webhook-hetzner.helmrepository.yaml
   - cilium.helmrepository.yaml
   - emberstack.helmrepository.yaml

@@ -1,0 +1,61 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: synapse
+spec:
+  interval: 5m
+  timeout: 20m
+  chart:
+    spec:
+      chart: matrix-synapse
+      version: '0.13.9'
+      sourceRef:
+        kind: HelmRepository
+        name: ananace
+        namespace: flux-system
+  values:
+    serverName: siewert.io
+    publicServerName: matrix.frickel.earth
+    persistence:
+      enabled: true
+      storageClass: longhorn
+      size: 20Gi
+    signingkey:
+      job:
+        enabled: false
+    config:
+      enableRegistration: false
+    workers:
+      default:
+        annotations:
+          prometheus.io/scrape: true
+          prometheus.io/port: 9090
+          prometheus.io/path: /_synapse/metrics
+      pusher:
+        enabled: true
+      user_dir:
+        enabled: true
+      frontend_proxy:
+        enabled: true
+        csPaths:
+          - "/_matrix/client/(api/v1|r0|v3|unstable)/keys/upload"
+          - "/_matrix/client/(api/v1|r0|v3|unstable)/presence/[^/]+/status"
+    extraConfig:
+      use_presence: true
+    ingress:
+      className: nginx
+      annotations:
+        tls:
+          - secretName: wildcard.frickel.earth-prod
+            hosts:
+              - matrix.frickel.earth
+    postgresql:
+      enabled: false
+    externalPostgresql:
+      host: matrix-postgres
+      username: synapse
+      database: synapse
+
+      existingSecret: synapse.matrix-postgres.credentials.postgresql.acid.zalan.do
+      existingSecretPasswordKey: password
