@@ -49,6 +49,9 @@ spec:
         - secretName: wildcard.frickel.earth-prod
           hosts:
             - matrix.frickel.earth
+        - secretName: siewert.io-prod
+          hosts:
+            - siewert.io
     postgresql:
       enabled: false
     externalPostgresql:
