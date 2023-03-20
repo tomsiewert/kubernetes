@@ -53,11 +53,11 @@ alertmanager:
       - name: vops-warning
         victorops_configs:
           - routing_key: Private
-            message_type: warning
+            message_type: WARNING
       - name: vops-critical
         victorops_configs:
           - routing_key: Private
-            message_type: critical
+            message_type: CRITICAL
     route:
       routes:
         - matchers:
@@ -69,10 +69,10 @@ alertmanager:
             - alertname = InfoInhibitor
           receiver: null
         - matchers:
-            - severity = warning
+            - severity = "warning"
           receiver: vops-warning
         - matchers:
-            - severity = critical
+            - severity = "critical"
           receiver: vops-critical
   podDisruptionBudget:
     enabled: true
