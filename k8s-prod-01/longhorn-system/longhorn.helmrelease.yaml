@@ -16,4 +16,4 @@ spec:
         namespace: flux-system
   values:
     persistence:
-      defaultClassReplicaCount: 3
+      defaultClassReplicaCount: 2
