@@ -4,3 +4,4 @@ kind: Kustomization
 
 resources:
   - cilium/
+  - https://github.com/kubereboot/kured/releases/download/1.12.2/kured-1.12.2-dockerhub.yaml
