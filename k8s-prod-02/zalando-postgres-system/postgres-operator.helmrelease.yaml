@@ -18,3 +18,7 @@ spec:
     crds: CreateReplace
   upgrade:
     crds: CreateReplace
+  values:
+    image:
+      registry: ghcr.io
+      repository: zalando/postgres-operator
