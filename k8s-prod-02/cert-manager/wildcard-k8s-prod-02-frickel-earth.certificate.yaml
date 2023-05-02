@@ -1,0 +1,15 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wildcard.k8s-prod-02.frickel.earth
+  namespace: cert-manager
+spec:
+  secretName: wildcard.k8s-prod-02.frickel.earth-prod
+  issuerRef:
+    name: letsencrypt-dns-hetzner-prod
+    kind: ClusterIssuer
+  commonName: 'k8s-prod-02.frickel.earth'
+  dnsNames:
+    - 'k8s-prod-02.frickel.earth'
+    - '*.k8s-prod-02.frickel.earth'

@@ -1,0 +1,16 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: flux-system
+
+resources:
+  - cluster-base-flux.kustomization.yaml
+  - cert-manager.kustomization.yaml
+  - kube-system.kustomization.yaml
+  - kustomizations.kustomization.yaml
+  - matrix.kustomization.yaml
+  - monitoring.kustomization.yaml
+  - paperless.kustomization.yaml
+  - redis-system.kustomization.yaml
+  - traefik.kustomization.yaml
+  - zalando-postgres-system.kustomization.yaml

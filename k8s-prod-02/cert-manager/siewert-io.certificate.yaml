@@ -1,0 +1,14 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: siewert.io
+  namespace: cert-manager
+spec:
+  secretName: siewert.io-prod
+  issuerRef:
+    name: letsencrypt-dns-cloudflare-prod
+    kind: ClusterIssuer
+  commonName: 'siewert.io'
+  dnsNames:
+   - siewert.io

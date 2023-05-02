@@ -3,6 +3,7 @@ keys:
   - &toms age1vm9mww72aymqc4f85p7mc2hd850up8s8mgc9cyuz8hrpfee4p4uqdxjlwq
   - &k8s-home age19s84aypfuavsqjh3xhu9zwq4ku2e03m0ds0rsgrvh8zykskazq9sss0m0c
   - &k8s-prod-01 age1ythvxddew4xy5wyzs90zdjsrzlhrswnhlhv0dqk9lt3sywxfm9cqzld7g4
+  - &k8s-prod-02 age1rsp46nn826senazrql2wxvecyskjujpaxkkap8ws4qa2sl9fdvjqmyn6qh
 creation_rules:
   - path_regex: base/.*
     encrypted_regex: ^(data|stringData)$
@@ -11,6 +12,7 @@ creation_rules:
           - *toms
           - *k8s-home
           - *k8s-prod-01
+          - *k8s-prod-02
   - path_regex: k8s-home/.*
     encrypted_regex: ^(data|stringData)$
     key_groups:
@@ -23,3 +25,9 @@ creation_rules:
       - age:
           - *toms
           - *k8s-prod-01
+  - path_regex: k8s-prod-02/.*
+    encrypted_regex: ^(data|stringData)$
+    key_groups:
+      - age:
+          - *toms
+          - *k8s-prod-02
