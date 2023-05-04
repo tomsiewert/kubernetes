@@ -16,5 +16,4 @@ spec:
       interval: 1m
   values:
     redisOperator:
-      imageName: ghcr.io/ot-container-kit/redis-operator/redis-operator
       imageTag: v0.15.0-arm64
