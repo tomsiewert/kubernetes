@@ -14,5 +14,6 @@ resources:
   - longhorn.helmrepository.yaml
   - metallb.helmrepository.yaml
   - prometheus-community.helmrepository.yaml
+  - traefik.helmrepository.yaml
   - vmware-tanzu.helmrepository.yaml
   - zalando-postgres-operator.helmrepository.yaml

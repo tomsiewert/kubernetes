@@ -12,5 +12,5 @@ resources:
 #  - monitoring.kustomization.yaml
 #  - paperless.kustomization.yaml
   - redis-system.kustomization.yaml
-#  - traefik.kustomization.yaml
+  - traefik.kustomization.yaml
   - zalando-postgres-system.kustomization.yaml

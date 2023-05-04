@@ -1,0 +1,12 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: TLSStore
+metadata:
+  name: default
+  namespace: cert-manager
+spec:
+  certificates:
+    - secretName: wildcard.frickel.earth
+    - secretName: wildcard.k8s-prod-02.frickel.earth
+  defaultCertificate:
+    secretName: wildcard.k8s-prod-02.frickel.earth
