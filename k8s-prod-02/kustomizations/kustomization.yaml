@@ -8,7 +8,7 @@ resources:
   - cert-manager.kustomization.yaml
   - kube-system.kustomization.yaml
   - kustomizations.kustomization.yaml
-#  - matrix.kustomization.yaml
+  - matrix.kustomization.yaml
   - monitoring.kustomization.yaml
 #  - paperless.kustomization.yaml
 #  - redis-system.kustomization.yaml
