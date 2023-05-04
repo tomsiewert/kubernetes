@@ -12,7 +12,7 @@ defaultRules:
 kubeProxy:
   enabled: false
 kubeEtcd:
-  enabled: false
+  enabled: true
 kubeApiServer:
   enabled: false
 kubeControllerManager:
@@ -110,7 +110,7 @@ prometheus:
     storageSpec:
       volumeClaimTemplate:
         spec:
-          storageClassName: longhorn
+          storageClassName: hcloud-volumes
           accessModes:
             - ReadWriteOnce
           resources:
