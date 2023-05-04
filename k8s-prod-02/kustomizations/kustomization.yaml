@@ -9,8 +9,8 @@ resources:
   - kube-system.kustomization.yaml
   - kustomizations.kustomization.yaml
 #  - matrix.kustomization.yaml
-#  - monitoring.kustomization.yaml
+  - monitoring.kustomization.yaml
 #  - paperless.kustomization.yaml
-  - redis-system.kustomization.yaml
+#  - redis-system.kustomization.yaml
   - traefik.kustomization.yaml
   - zalando-postgres-system.kustomization.yaml

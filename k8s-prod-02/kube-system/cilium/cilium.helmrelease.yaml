@@ -31,8 +31,8 @@ spec:
       ui:
         enabled: true
         ingress:
-          enabled: false
-          className: nginx
+          enabled: true
+          className: traefik
           hosts:
             - hubble.k8s-prod-02.frickel.earth
         replicas: 1

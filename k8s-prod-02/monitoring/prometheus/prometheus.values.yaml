@@ -80,13 +80,9 @@ grafana:
       scopes: 'openid email profile'
   ingress:
     enabled: true
-    ingressClassName: nginx
+    ingressClassName: traefik
     hosts:
       - grafana.frickel.earth
-    tls:
-      - secretName: wildcard.frickel.earth-prod
-        hosts:
-          - grafana.frickel.earth
   plugins:
     - flant-statusmap-panel
     - grafana-piechart-panel
