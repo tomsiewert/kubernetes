@@ -4,11 +4,11 @@ kind: postgresql
 metadata:
   name: matrix-postgres
 spec:
-  enableLogicalBackup: false
+  enableLogicalBackup: true
   teamId: matrix
   volume:
-    size: 20Gi
-    storageClass: hcloud-csi
+    size: 10Gi
+    storageClass: hcloud-volumes
   numberOfInstances: 2
   users:
     synapse: []

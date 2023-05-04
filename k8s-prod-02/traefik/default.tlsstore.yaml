@@ -8,5 +8,6 @@ spec:
   certificates:
     - secretName: wildcard.frickel.earth-prod
     - secretName: wildcard.k8s-prod-02.frickel.earth-prod
+    - secretName: siewert.io-prod
   defaultCertificate:
     secretName: wildcard.k8s-prod-02.frickel.earth-prod

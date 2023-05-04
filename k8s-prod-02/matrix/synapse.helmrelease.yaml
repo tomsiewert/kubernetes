@@ -25,7 +25,7 @@ spec:
     publicServerName: matrix.frickel.earth
     persistence:
       enabled: true
-      storageClass: longhorn
+      storageClass: hcloud-volumes
       size: 20Gi
     signingkey:
       job:
@@ -62,14 +62,7 @@ spec:
     extraConfig:
       use_presence: true
     ingress:
-      className: nginx
-      tls:
-        - secretName: wildcard.frickel.earth-prod
-          hosts:
-            - matrix.frickel.earth
-        - secretName: siewert.io-prod
-          hosts:
-            - siewert.io
+      traefikPaths: true
     postgresql:
       enabled: false
     externalPostgresql:
