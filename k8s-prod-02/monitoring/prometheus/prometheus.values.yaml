@@ -143,14 +143,19 @@ grafana:
 
 prometheus:
   enabled: true
+  replicaCount: 2
   ingress:
     enabled: false
   networkPolicy:
     enabled: true
     flavor: cilium
-  replicaCount: 2
+  thanosService:
+    enabled: true
   prometheusSpec:
+    disableCompaction: true
     retention: 10d
+    additionalArgs:
+      - "--storage.tsdb.max-block-duration=2h"
     externalLabels:
       monitor: k8s
     storageSpec:
