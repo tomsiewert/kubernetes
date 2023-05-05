@@ -1,0 +1,25 @@
+---
+apiVersion: "acid.zalan.do/v1"
+kind: postgresql
+metadata:
+  name: general-db1-prod
+spec:
+  enableLogicalBackup: false
+  teamId: general
+  volume:
+    size: 10Gi
+    storageClass: hcloud-volumes
+  numberOfInstances: 3
+  users:
+    synapse: []
+    paperless: []
+  databases:
+    synapse: synapse
+    paperless: paperless
+  postgresql:
+    version: "15"
+  patroni:
+    initdb:
+      lc-collate: C
+      lc-ctype: C
+      encoding: UTF8
