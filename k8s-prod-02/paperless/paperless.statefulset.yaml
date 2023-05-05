@@ -31,7 +31,7 @@ spec:
               port: 8000
           env:
             - name: PAPERLESS_REDIS
-              value: "redis://paperless-redis:6379"
+              value: "redis://paperless-redis-master:6379"
             - name: PAPERLESS_DBHOST
               value: "general-db1-prod.postgres"
             - name: PAPERLESS_DBUSER
