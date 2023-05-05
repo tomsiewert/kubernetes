@@ -10,6 +10,7 @@ resources:
   - kustomizations.kustomization.yaml
   - matrix.kustomization.yaml
   - monitoring.kustomization.yaml
+  - postgres.kustomization.yaml
 #  - paperless.kustomization.yaml
 #  - redis-system.kustomization.yaml
   - traefik.kustomization.yaml
