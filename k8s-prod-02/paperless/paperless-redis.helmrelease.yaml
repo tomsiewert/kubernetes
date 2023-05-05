@@ -1,0 +1,31 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: paperless-redis
+  namespace: redis
+spec:
+  install:
+    remediation:
+      retries: -1
+  upgrade:
+    remediation:
+      retries: -1
+  interval: 10m
+  timeout: 20m
+  chart:
+    spec:
+      chart: redis
+      version: '17.10.1'
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+  values:
+    architecture: standalone
+    master:
+      kind: Deployment
+      persistence:
+        enabled: false
+      service:
+        port: 6379

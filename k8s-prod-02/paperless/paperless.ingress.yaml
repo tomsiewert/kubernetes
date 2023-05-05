@@ -2,11 +2,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: "1024m"
   name: paperless
 spec:
-  ingressClassName: nginx
+  ingressClassName: traefik
   rules:
     - host: paperless.frickel.earth
       http:
@@ -18,7 +16,3 @@ spec:
                   number: 8000
             path: /
             pathType: Prefix
-  tls:
-    - hosts:
-        - paperless.frickel.earth
-      secretName: wildcard.frickel.earth-prod

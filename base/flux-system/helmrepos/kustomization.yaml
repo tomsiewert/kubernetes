@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: flux-system
 resources:
   - ananace.helmrepository.yaml
+  - bitnami.helmrepository.yaml
   - cert-manager-webhook-hetzner.helmrepository.yaml
   - cilium.helmrepository.yaml
   - emberstack.helmrepository.yaml
