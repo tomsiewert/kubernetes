@@ -20,30 +20,57 @@ kubeControllerManager:
 
 alertmanager:
   enabled: true
+  alertmanagerSpec:
+    externalUrl: "https://alertmanager.k8s-prod-02.frickel.earth"
+    replicas: 2
+    volumeMounts:
+      - name: victorops-api-key
+        mountPath: /run/secrets/victorops_api_key
+        subPath: api_key
+        readOnly: true
+    volumes:
+      - name: victorops-api-key
+        secret:
+          secretName: victorops-key
+          items:
+            - key: api_key
+              path: api_key
   config:
-    inhibit_rules:
-    - equal:
-      - namespace
-      source_matchers:
-      - alertname = InfoInhibitor
-      target_matchers:
-      - severity = info
+    global:
+      victorops_api_key_file: "/run/secrets/victorops_api_key"
     receivers:
-    - name: "null"
+      - name: "null"
+      - name: vops-warning
+        victorops_configs:
+          - routing_key: Private
+            message_type: WARNING
+      - name: vops-critical
+        victorops_configs:
+          - routing_key: Private
+            message_type: CRITICAL
     route:
       routes:
-      - matchers:
-        - alertname = Watchdog
-        receiver: "null"
-        group_wait: 0s
-        repeat_interval: 10m
-      - matchers:
-        - alertname = InfoInhibitor
-        receiver: null
+        - matchers:
+            - alertname = Watchdog
+          receiver: "null"
+          group_wait: 0s
+          repeat_interval: 10m
+        - matchers:
+            - alertname = InfoInhibitor
+          receiver: null
+        - matchers:
+            - severity = "warning"
+          receiver: vops-warning
+        - matchers:
+            - severity = "critical"
+          receiver: vops-critical
   podDisruptionBudget:
     enabled: true
   ingress:
-    enabled: false
+    enabled: true
+    ingressClassName: traefik
+    hosts:
+      - alertmanager.k8s-prod-02.frickel.earth
 
 grafana:
   enabled: true
@@ -85,7 +112,7 @@ grafana:
       cookie_secure: true
     auth:
       disable_login_form: "true"
-      oauth_auto_login: "true"
+      oauth_auto_login: "false"
     auth.azuread:
       name: 'siewertIO Azure Auth'
       enabled: "true"
@@ -118,8 +145,14 @@ prometheus:
   enabled: true
   ingress:
     enabled: false
+  networkPolicy:
+    enabled: true
+    flavor: cilium
+  replicaCount: 2
   prometheusSpec:
     retention: 10d
+    externalLabels:
+      monitor: k8s
     storageSpec:
       volumeClaimTemplate:
         spec:
@@ -128,7 +161,7 @@ prometheus:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 20Gi
+              storage: 10Gi
     podMonitorNamespaceSelector:
       any: true
     podMonitorSelector: {}
