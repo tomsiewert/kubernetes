@@ -52,7 +52,6 @@ grafana:
     GF_DATABASE_TYPE: postgres
     GF_DATABASE_HOST: general-db1-prod.postgres:5432
     GF_DATABASE_NAME: grafana
-    GF_DATABASE_SSL_MODE: disable
   envValueFrom:
     GF_DATABASE_USER:
       secretKeyRef:
