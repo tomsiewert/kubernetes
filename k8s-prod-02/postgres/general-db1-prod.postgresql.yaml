@@ -13,9 +13,11 @@ spec:
   users:
     synapse: []
     paperless: []
+    grafana: []
   databases:
     synapse: synapse
     paperless: paperless
+    grafana: grafana
   postgresql:
     version: "15"
   patroni:

@@ -7,4 +7,5 @@ resources:
   - postgres.namespace.yaml
   - synapse-general-db1-prod.secret.yaml
   - paperless-general-db1-prod.secret.yaml
+  - grafana-general-db1-prod.secret.yaml
   - general-db1-prod.postgresql.yaml

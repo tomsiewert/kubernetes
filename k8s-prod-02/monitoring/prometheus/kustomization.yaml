@@ -12,5 +12,6 @@ configMapGenerator:
       - prometheus.values.yaml
 
 resources:
-  - prometheus.helmrelease.yaml
+  - ../../postgres/grafana-general-db1-prod.secret.yaml
   - grafana-azuread.secret.yaml
+  - prometheus.helmrelease.yaml
