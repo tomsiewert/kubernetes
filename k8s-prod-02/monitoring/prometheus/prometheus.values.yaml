@@ -1,4 +1,5 @@
 ---
+nameOverride: k8s
 defaultRules:
   rules:
     etcd: false
@@ -143,12 +144,12 @@ grafana:
 
 prometheus:
   enabled: true
-  replicaCount: 2
   ingress:
     enabled: false
   thanosService:
     enabled: true
   prometheusSpec:
+    replicaCount: 2
     disableCompaction: true
     retention: 10d
     externalLabels:
