@@ -74,7 +74,7 @@ spec:
       spec:
         accessModes:
           - ReadWriteOnce
-        storageClassName: longhorn
+        storageClassName: hcloud-volumes
         resources:
           requests:
             storage: 20Gi
@@ -83,7 +83,7 @@ spec:
       spec:
         accessModes:
           - ReadWriteOnce
-        storageClassName: longhorn
+        storageClassName: hcloud-volumes
         resources:
           requests:
             storage: 20Gi

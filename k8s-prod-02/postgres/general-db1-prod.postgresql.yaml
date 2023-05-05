@@ -9,7 +9,7 @@ spec:
   volume:
     size: 10Gi
     storageClass: hcloud-volumes
-  numberOfInstances: 3
+  numberOfInstances: 2
   users:
     synapse: []
     paperless: []
