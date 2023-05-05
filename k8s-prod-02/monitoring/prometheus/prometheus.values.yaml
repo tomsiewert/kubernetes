@@ -146,9 +146,6 @@ prometheus:
   replicaCount: 2
   ingress:
     enabled: false
-  networkPolicy:
-    enabled: true
-    flavor: cilium
   thanosService:
     enabled: true
   prometheusSpec:
