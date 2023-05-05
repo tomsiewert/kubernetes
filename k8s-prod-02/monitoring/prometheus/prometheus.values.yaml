@@ -149,7 +149,7 @@ prometheus:
   thanosService:
     enabled: true
   prometheusSpec:
-    replicaCount: 2
+    replicas: 2
     disableCompaction: true
     retention: 10d
     externalLabels:
