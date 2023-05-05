@@ -151,7 +151,6 @@ prometheus:
   prometheusSpec:
     replicas: 2
     disableCompaction: true
-    retention: 10d
     externalLabels:
       monitor: k8s
     storageSpec:
