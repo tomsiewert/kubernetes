@@ -33,13 +33,13 @@ spec:
             - name: PAPERLESS_REDIS
               value: "redis://paperless-redis:6379"
             - name: PAPERLESS_DBHOST
-              value: "acid-paperless"
+              value: "general-db1-prod.postgres"
             - name: PAPERLESS_DBUSER
               value: "paperless"
             - name: PAPERLESS_DBPASS
               valueFrom:
                 secretKeyRef:
-                  name: paperless.acid-paperless.credentials.postgresql.acid.zalan.do
+                  name: paperless.general-db1-prod.credentials.postgresql.acid.zalan.do
                   key: password
             - name: PAPERLESS_TIME_ZONE
               value: "Europe/Berlin"

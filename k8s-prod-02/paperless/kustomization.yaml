@@ -6,6 +6,7 @@ namespace: paperless
 resources:
   - paperless.namespace.yaml
   - paperless-redis.helmrelease.yaml
+  - ../postgres/paperless-general-db1-prod.secret.yaml
   - paperless.secret.yaml
   - paperless.statefulset.yaml
   - paperless.ingress.yaml
