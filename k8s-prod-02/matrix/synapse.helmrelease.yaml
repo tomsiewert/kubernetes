@@ -26,7 +26,7 @@ spec:
     persistence:
       enabled: true
       storageClass: hcloud-volumes
-      size: 20Gi
+      size: 10Gi
     signingkey:
       job:
         enabled: false
