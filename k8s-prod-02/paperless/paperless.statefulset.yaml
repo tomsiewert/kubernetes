@@ -36,6 +36,8 @@ spec:
               value: "general-db1-prod.postgres"
             - name: PAPERLESS_DBUSER
               value: "paperless"
+            - name: PAPERLESS_PORT
+              value: "8000"
             - name: PAPERLESS_DBPASS
               valueFrom:
                 secretKeyRef:
