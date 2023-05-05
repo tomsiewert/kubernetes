@@ -5,7 +5,7 @@ namespace: matrix
 
 resources:
   - matrix.namespace.yaml
+  - ../postgres/synapse-general-db1-prod.secret.yaml
   - synapse-signingkey.secret.yaml
   - synapse.helmrelease.yaml
-  - matrix-postgres.postgresql.yaml
   - synapse-smtp-config.secret.yaml
