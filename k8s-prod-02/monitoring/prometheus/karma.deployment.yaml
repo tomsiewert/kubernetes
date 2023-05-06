@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: karma
+  labels:
+    app.kubernetes.io/name: karma
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: karma
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: karma
+    spec:
+      containers:
+        - name: karma
+          image: ghcr.io/prymitive/karma:v0.114
+          args:
+            - "--config.file"
+            - "/config.yaml"
+          ports:
+            - containerPort: 8080
+              name: karma
+              protocol: TCP
+          volumeMounts:
+            - name: config
+              subPath: config.yaml
+              mountPath: /config.yaml
+              readOnly: true
+      volumes:
+        - name: config
+          configMap:
+            name: karma

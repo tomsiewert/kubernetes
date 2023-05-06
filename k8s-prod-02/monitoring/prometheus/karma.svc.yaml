@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: karma
+  labels:
+    app.kubernetes.io/name: karma
+spec:
+  selector:
+    app.kubernetes.io/name: karma
+  type: ClusterIP
+  ipFamilyPolicy: RequireDualStack
+  ipFamilies: [ IPv4, IPv6 ]
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+      protocol: TCP

@@ -1,0 +1,32 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: karma
+  labels:
+    app.kubernetes.io/name: karma
+data:
+  config.yaml: |
+    alertmanager:
+      interval: 30s
+      servers:
+        - name: k8s-prod-02
+          cluster: k8s-prod-02
+          uri: http://k8s-alertmanager.monitoring:9093
+          external_uri: https://alertmanager.k8s-prod-02.frickel.earth
+    labels:
+      color:
+        static:
+          - job
+        unique:
+          - cluster
+          - instance
+          - "@receiver"
+    grid:
+      sorting:
+        label: alertname
+    ui:
+      theme: dark
+      animations: true
+      collapseGroups: collapsed
+      alertsPerGroup: 5

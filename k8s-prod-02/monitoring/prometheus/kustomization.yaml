@@ -16,3 +16,7 @@ resources:
   - ../../postgres/grafana-general-db1-prod.secret.yaml
   - grafana-azuread.secret.yaml
   - prometheus.helmrelease.yaml
+  - karma.configmap.yaml
+  - karma.deployment.yaml
+  - karma.svc.yaml
+  - karma.ingress.yaml
