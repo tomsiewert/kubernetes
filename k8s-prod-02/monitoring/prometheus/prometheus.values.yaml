@@ -69,7 +69,6 @@ alertmanager:
         - matchers:
             - severity = "critical"
           receiver: vops-critical
-          group_by: [alertname, monitor]
   podDisruptionBudget:
     enabled: true
   ingress:
