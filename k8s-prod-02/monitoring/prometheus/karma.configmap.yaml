@@ -14,6 +14,10 @@ data:
           cluster: k8s-prod-02
           uri: http://k8s-alertmanager.monitoring:9093
           external_uri: https://alertmanager.k8s-prod-02.frickel.earth
+          healthcheck:
+            filters:
+              k8s:
+                - alertname=Watchdog
     labels:
       color:
         static:
