@@ -52,8 +52,6 @@ spec:
           prometheus.io/path: /_synapse/metrics
       pusher:
         enabled: true
-      user_dir:
-        enabled: true
       frontend_proxy:
         enabled: true
         csPaths:
