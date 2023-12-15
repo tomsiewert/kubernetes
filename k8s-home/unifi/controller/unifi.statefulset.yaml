@@ -21,7 +21,7 @@ spec:
         app.kubernetes.io/instance: home
     spec:
       containers:
-        - image: lscr.io/linuxserver/unifi-controller:7.5.174
+        - image: lscr.io/linuxserver/unifi-controller:7.5.187
           name: controller
           ports:
             - containerPort: 8080
