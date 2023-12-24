@@ -12,6 +12,5 @@ configMapGenerator:
       - prometheus.values.yaml
 
 resources:
-  - ../../../base/monitoring/victorops-key.secret.yaml
   - grafana-azuread.secret.yaml
   - prometheus.helmrelease.yaml
