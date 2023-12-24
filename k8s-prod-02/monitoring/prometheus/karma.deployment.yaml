@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: karma
-          image: ghcr.io/prymitive/karma:v0.115
+          image: ghcr.io/prymitive/karma:v0.118
           args:
             - "--config.file"
             - "/config.yaml"
