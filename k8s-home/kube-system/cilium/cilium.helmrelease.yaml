@@ -49,5 +49,7 @@ spec:
     encryption:
       enabled: true
       type: wireguard
+    operator:
+      replicas: 1
     prometheus:
       enabled: true
