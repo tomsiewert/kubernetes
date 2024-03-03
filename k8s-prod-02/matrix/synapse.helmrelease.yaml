@@ -15,7 +15,7 @@ spec:
   chart:
     spec:
       chart: matrix-synapse
-      version: '3.8.0'
+      version: '3.8.2'
       sourceRef:
         kind: HelmRepository
         name: ananace
