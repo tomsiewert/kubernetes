@@ -1,4 +1,3 @@
----
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
@@ -16,8 +15,8 @@ spec:
         namespace: flux-system
   values:
     persistence:
-      defaultClassReplicaCount: 2
+      defaultClassReplicaCount: 1
     ingress:
       enabled: true
-      ingressClassName: nginx
+      ingressClassName: traefik
       host: longhorn.home.frickel.earth
