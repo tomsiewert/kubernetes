@@ -50,13 +50,9 @@ alertmanager:
     enabled: true
   ingress:
     enabled: true
-    ingressClassName: nginx
+    ingressClassName: traefik
     hosts:
       - alertmanager.home.frickel.earth
-    tls:
-      - secretName: wildcard.home.frickel.earth-prod
-        hosts:
-          - alertmanager.home.frickel.earth
 
 grafana:
   enabled: true
@@ -93,13 +89,9 @@ grafana:
       scopes: 'openid email profile'
   ingress:
     enabled: true
-    ingressClassName: nginx
+    ingressClassName: traefik
     hosts:
       - grafana.home.frickel.earth
-    tls:
-      - secretName: wildcard.home.frickel.earth-prod
-        hosts:
-          - grafana.home.frickel.earth
   plugins:
     - flant-statusmap-panel
     - grafana-piechart-panel
@@ -160,13 +152,9 @@ prometheus:
   enabled: true
   ingress:
     enabled: true
-    ingressClassName: nginx
+    ingressClassName: traefik
     hosts:
       - prometheus.home.frickel.earth
-    tls:
-      - secretName: wildcard.home.frickel.earth-prod
-        hosts:
-          - prometheus.home.frickel.earth
   prometheusSpec:
     retention: 10d
     storageSpec:

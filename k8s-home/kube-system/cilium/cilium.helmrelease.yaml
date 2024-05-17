@@ -1,4 +1,3 @@
----
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
@@ -32,9 +31,9 @@ spec:
         enabled: true
         ingress:
           enabled: true
-          className: nginx
+          className: traefik
           hosts:
-            - hubble.home.frickel.earth
+          - hubble.home.frickel.earth
         replicas: 1
     ipam:
       mode: kubernetes
