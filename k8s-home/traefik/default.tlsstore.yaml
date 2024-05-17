@@ -5,6 +5,6 @@ metadata:
   namespace: cert-manager
 spec:
   certificates:
-  - secretName: wildcard.k8s-home.frickel.earth-prod
+  - secretName: wildcard.home.frickel.earth-prod
   defaultCertificate:
-    secretName: wildcard.k8s-home.frickel.earth-prod
+    secretName: wildcard.home.frickel.earth-prod
