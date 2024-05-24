@@ -7,7 +7,6 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      app.kubernetes.io/name: vaultwarden
       app: vaultwarden
   ingress:
     - fromEndpoints:
@@ -25,12 +24,8 @@ spec:
         - ports:
             - port: "53"
               protocol: UDP
-          rules:
-            dns:
-              - matchPattern: "*"
     - toEndpoints:
         - matchLabels:
-            cluster-name: general-db1-prod
             io.kubernetes.pod.namespace: postgres
       toPorts:
         - ports:
