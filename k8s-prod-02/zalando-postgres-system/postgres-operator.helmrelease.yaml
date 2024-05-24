@@ -22,3 +22,5 @@ spec:
     image:
       registry: ghcr.io
       repository: zalando/postgres-operator
+    configKubernetes:
+      enable_cross_namespace_secret: true
