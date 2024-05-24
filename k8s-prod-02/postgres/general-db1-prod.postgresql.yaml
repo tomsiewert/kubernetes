@@ -14,10 +14,12 @@ spec:
     synapse: []
     paperless: []
     grafana: []
+    vaultwarden.vaultwarden: []
   databases:
     synapse: synapse
     paperless: paperless
     grafana: grafana
+    vaultwarden: vaultwarden.vaultwarden
   postgresql:
     version: "15"
   patroni:

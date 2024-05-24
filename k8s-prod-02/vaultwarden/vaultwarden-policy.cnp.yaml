@@ -1,0 +1,46 @@
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: vaultwarden-policy
+  namespace: vaultwarden
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/name: vaultwarden
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: traefik
+      toPorts:
+        - ports:
+            - port: "8080"
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: kube-system
+            k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: UDP
+          rules:
+            dns:
+              - matchPattern: "*"
+    - toEndpoints:
+        - matchLabels:
+            cluster-name: general-db1-prod
+            io.kubernetes.pod.namespace: postgres
+      toPorts:
+        - ports:
+            - port: "5432"
+    - toCIDRSet:
+        - cidr: 45.86.126.130/32
+        - cidr: "2a0c:9a40:8044:2::/64"
+      toPorts:
+        - ports:
+            - port: "25"
+        - ports:
+            - port: "465"
+        - ports:
+            - port: "587"

@@ -13,4 +13,5 @@ resources:
   - postgres.kustomization.yaml
   - paperless.kustomization.yaml
   - traefik.kustomization.yaml
+  - vaultwarden.kustomization.yaml
   - zalando-postgres-system.kustomization.yaml
