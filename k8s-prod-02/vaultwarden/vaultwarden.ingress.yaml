@@ -1,0 +1,17 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: vaultwarden
+  namespace: vaultwarden
+  labels:
+    app.kubernetes.io/name: vaultwarden
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`bitwarden.frickel.earth`)
+      kind: Rule
+      services:
+        - name: vaultwarden
+          port: 80

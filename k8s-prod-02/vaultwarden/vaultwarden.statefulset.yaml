@@ -1,0 +1,83 @@
+---
+apiVersion: apps/v1
+kind: Statefulset
+metadata:
+  name: vaultwarden
+  namespace: vaultwarden
+  labels:
+    app.kubernetes.io/name: vaultwarden
+spec:
+  replicas: 1
+  serviceName: vaultwarden
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: vaultwarden
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: vaultwarden
+    spec:
+      securityContext:
+        fsGroup: 1000
+        runAsUser: 1000
+        runAsGroup: 1000
+      containers:
+      - name: vaultwarden
+        image: vaultwarden/server:1.30.5
+        ports:
+        - containerPort: 8080
+          name: web
+          protocol: TCP
+        envFrom:
+        - secretRef:
+            name: vaultwarden-secrets
+        env:
+        # The database credentials must be passed as env variables first
+        # and then referenced in DATABASE_URL, because vaultwarden will
+        # pass only the full URL to libpq. Any setting (e.g. sslmode) must
+        # be set in the URL.
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: vaultwarden.vaultwarden.general-db1-prod.credentials.postgresql.acid.zalan.do
+              key: username
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: vaultwarden.vaultwarden.general-db1-prod.credentials.postgresql.acid.zalan.do
+              key: password
+        # Use $() instead of ${}!!
+        # See https://kubernetes.io/docs/tasks/inject-data-application/define-interdependent-environment-variables/
+        - name: DATABASE_URL
+          value: "postgresql://$(DB_USERNAME):$(DB_PASSWORD)@general-db1-prod.postgres.svc.cluster.local:5432/vaultwarden"
+
+        # Explicitly set the Rocket port to 8080 to make sure that
+        # it doesn't get accidentially changed during an upgrade
+        - name: ROCKET_PORT
+          value: "8080"
+
+        # Signup will only be possible for specific domains.
+        # The definition of them will be done in the secret.
+        - name: SIGNUPS_ALLOWED
+          value: "false"
+        - name: DISABLE_2FA_REMEMBER
+          value: "true"
+        resources:
+          requests:
+            memory: 300Mi
+            cpu: 300m
+          limits:
+            memory: 600Mi
+            cpu: 600m
+        volumeMounts:
+        - name: vaultwarden-data
+          mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: vaultwarden-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "hcloud-volumes"
+      resources:
+        requests:
+          storage: 10Gi

@@ -2,14 +2,14 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: postgres
+  name: vaultwarden
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./k8s-prod-02/postgres
+  path: ./k8s-prod-02/vaultwarden
   prune: true
   dependsOn:
-    - name: zalando-postgres-system
+    - name: postgres
   decryption:
     provider: sops
     secretRef:
