@@ -7,7 +7,7 @@ spec:
   enableLogicalBackup: false
   teamId: general
   volume:
-    size: 10Gi
+    size: 20Gi
     storageClass: hcloud-volumes
   numberOfInstances: 2
   users:
