@@ -22,7 +22,7 @@ kubeControllerManager:
   enabled: false
 
 alertmanager:
-  enabled: true
+  enabled: false
   alertmanagerSpec:
     externalUrl: "https://alertmanager.k8s-prod-02.frickel.earth"
     replicas: 2
@@ -125,7 +125,7 @@ prometheus:
   thanosService:
     enabled: true
   prometheusSpec:
-    replicas: 2
+    replicas: 1
     disableCompaction: true
     externalLabels:
       monitor: k8s
@@ -137,7 +137,7 @@ prometheus:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 20Gi
+              storage: 10Gi
     podMonitorNamespaceSelector:
       any: true
     podMonitorSelector: {}
