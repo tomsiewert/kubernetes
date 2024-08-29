@@ -50,7 +50,7 @@ alertmanager:
       - alertmanager.k8s-prod-02.frickel.earth
 
 grafana:
-  enabled: true
+  enabled: false
   defaultDashboardsTimezone: Europe/Berlin
   env:
     GF_DATABASE_TYPE: postgres
