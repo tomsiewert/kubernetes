@@ -8,7 +8,7 @@ spec:
   timeout: 20m
   chart:
     spec:
-      version: "6.15.4"
+      version: "6.16.6"
       chart: promtail
       sourceRef:
         kind: HelmRepository
